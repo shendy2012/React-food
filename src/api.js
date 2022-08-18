@@ -1,0 +1,17 @@
+import { API_URL } from "./config";
+
+const getMeelById = async (mealId) => {
+    const responce = await fetch(API_URL + 'lookup.php?i=' + mealId);
+    return await responce.json();
+};
+
+const getAllCategories = async () => {
+    const responce = await fetch(API_URL + 'categories.php');
+    return await responce.json();
+}
+const getFilteredCategory = async (catName) => {
+    const responce = await fetch(API_URL + 'filter.php?c=' + catName);
+    return await responce.json();
+}
+
+export { getMeelById, getAllCategories, getFilteredCategory };
